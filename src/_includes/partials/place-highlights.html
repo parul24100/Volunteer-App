@@ -1,6 +1,6 @@
 <div class="grid w-full grid-cols-1 my-4 lg:my-10 lg:mb-8 lg:grid-cols-4 lg:mx-0">
     {% if places.places %}
-        {% set background = cycler("bg-green-900", "bg-green-700", "bg-green-600") %}
+        {% set background = cycler("bg-blue-900", "bg-blue-700", "bg-blue-600") %}
         {% set testImage = cycler("trails-1.jpg", "trails-2.jpg", "trails-3.jpg") %}
         {% for place in places.places.slice(0,3) %}
             <div class="pt-2 lg:p-0">
@@ -17,7 +17,7 @@
     <a
         href="/places/" 
         target="_blank"
-        class="flex justify-start lg:justify-end lg:p-5 lg:bg-green-900 lg:h-50"
+        class="flex justify-start lg:justify-end lg:p-5 lg:bg-blue-900 lg:h-50"
     >
         <div class="self-center" style="margin-right: -3.75rem">
             <div class="float-right w-10 overflow-hidden">

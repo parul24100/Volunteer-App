@@ -1,30 +1,29 @@
-<div class="grid w-full grid-cols-1 my-4 lg:my-10 lg:mb-10 lg:grid-cols-4 lg:mx-0">
+<div class="grid w-full grid-cols-1 my-4 lg:my-10 lg:mb-10 lg:grid-cols-6 lg:mx-0">
     {% if orgs.organizations %}
     {% set orgs = orgs.organizations %}
-        {% set background = cycler("bg-green-900", "bg-green-700", "bg-green-600") %}
-        {% for org in orgs.slice(0,3) %}
+        {% set background = cycler("bg-blue-900", "bg-blue-700", "bg-blue-600") %}
+        
+        <!-- Displaying the first 3 organizations -->
+        {% for org in orgs.slice(0, 5) %}
             <div class="pt-2 lg:p-0">
                 <a href="/volunteer-groups/{{org.slug}}" alt="{{org.name}}">
-                    <img style="height: 160px; width: 100%; object-fit: cover;" src="{{org.photo}}">
+                    <img style="height: 300px; width: 120%; object-fit: cover;" src="{{org.photo}}">
                 </a>
                 <div class="p-5 h-50 lg:h-64 md:h-40 {{ background.next() }} flex flex-col justify-between">
                     <h3 class="font-extrabold tracking-wide text-white uppercase">{{org.name}}</h3>
                     <h4 class="font-serif text-sm font-light leading-6 tracking-wide text-white">{{org.description | truncate(100)}}</h4>
-                    <a class="self-end float-right p-1 text-xl font-extrabold text-green-900 uppercase bg-yellow-200 rounded-full go-button" href="/volunteer-groups/{{org.slug}}">Go</a>
+                    <a class="self-end float-right p-1 text-xl font-extrabold text-green-900 uppercase bg-blue-300 rounded-full go-button" href="/volunteer-groups/{{org.slug}}">Go</a>
                 </div>
             </div>
         {% endfor %}
-        <a
-            href="/volunteer-groups/" 
-            target="_blank"
-            class="flex justify-start lg:justify-end lg:p-5 lg:bg-green-900 lg:h-50"
-        >
-            <div class="self-center" style="margin-right: -3.75rem">
-                <div class="float-right w-10 overflow-hidden">
-                    <div class="text-2xl text-green-900 origin-top-left transform rotate-45 bg-yellow-200" style="height: 52px"></div>
-                </div>
-                <div class="float-right px-6 py-3 text-lg font-medium leading-7 tracking-wide text-green-900 bg-yellow-200">View All Groups</div>
-            </div>
-        </a>
+
+        <!-- View All Groups button -->
+        <div class="lg:col-span-1 flex items-center justify-center lg:justify-start">
+            <a href="/volunteer-groups/" 
+               target="_blank"
+               class="px-6 py-2 text-lg font-medium leading-7 text-green-900 bg-blue-300 rounded-full hover:bg-blue-400 transition duration-300 ml-10 lg:ml-16">
+                View All Groups
+            </a>
+        </div>
     {% endif %}
 </div>
